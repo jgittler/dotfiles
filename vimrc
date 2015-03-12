@@ -1,0 +1,147 @@
+syntax on
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
+
+Plugin 'gmarik/Vundle.vim'
+
+" Utility
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-surround'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'kana/vim-textobj-user'
+
+" Colors
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'sjl/badwolf'
+
+" Git
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" Ruby/Rails
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rbenv'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'jgdavey/tslime.vim'
+
+" Javascript
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'walm/jshint.vim'
+Plugin 'jQuery'
+
+" AIRLINE
+Plugin 'bling/vim-airline'
+Plugin 'file-line'
+
+set nocompatible
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                         set ft=gitcommit
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Guardfile,*.rake,config.ru}    set ft=ruby
+colorscheme badwolf
+filetype plugin indent on
+set autoindent
+set backspace=indent,eol,start
+set background=light
+set encoding=utf-8
+set expandtab
+set foldenable
+set foldlevel=100
+set foldmethod=marker
+set foldopen=block,hor,mark,percent,quickfix,tag
+set formatoptions-=or
+set hidden
+set history=10000
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set matchtime=5
+set nobackup
+set noerrorbells
+set noswapfile
+set novisualbell
+set nowrap
+set nu
+set ruler
+set shiftwidth=2
+set showcmd
+set showmatch
+set smartcase
+set smarttab
+set softtabstop=2
+set tabstop=2
+set textwidth=0
+set wildmenu
+set wildmode=longest,list
+
+map <A-[> :tab split<CR>:exec("tag ".expand(<cword>))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand(<cword>))<CR>
+" Start Interactive EasyAlign in visual mode
+vmap <ENTER> <Plug>(EasyAlign)
+" Start Interactive EasyAlign with a Vim movement
+nmap <leader>a <Plug>(EasyAlign)
+
+let g:bufferline_echo = 0
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Fast vim closing
+nnoremap <leader>qq :q<cr>
+
+" Switch back to previous file
+nnoremap <leader><leader> <c-^>
+
+" Window navigation
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+imap <c-c> <esc>
+
+" Ctrl-P Settings
+if executable('ag')
+" Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor\ -U
+
+  let g:ctrlp_user_command = 'ag %s -Ul --nocolor --hidden -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+if !has('python')
+  echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+map <leader>f5 :CtrlPClearCache<cr>:CtrlP<cr>
+
+let g:CtrlMaxFiles=40000
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" Mappings
+noremap <Right> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <UP> <NOP>
