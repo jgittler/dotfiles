@@ -52,6 +52,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH='/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH'
+export PATH="/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -76,7 +77,7 @@ export PATH='/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH'
 # For a full list of active aliases, run `alias`.
 
 ### Aliases ###
-
+alias v='vim'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -195,3 +196,7 @@ zstyle ':completion:*' file-sort modification reverse
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
