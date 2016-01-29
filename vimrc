@@ -1,64 +1,79 @@
+" Leader
+:let mapleader = " "
+
+" Colorscheme settings
+let g:gruvbox_italic=0
+let g:gruvbox_contrast_dark='hard'
+
 "============================
 " BASIC EDITING CONFIGURATION
-"============================
-syntax on
-filetype off 
+call plug#begin('~/.vim/bundle')
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-
-Plugin 'gmarik/Vundle.vim'
+"fuzzy finding
+Plug 'junegunn/fzf', { 'dir': '/home/vagrant/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Utility
-Plugin 'kien/ctrlp.vim.git'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'tpope/vim-surround'
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'kana/vim-textobj-user'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'henrik/vim-indexed-search'
+Plug 'tomtom/tcomment_vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'kana/vim-textobj-user'
+Plug 'Valloric/YouCompleteMe'
+Plug 'snipMate'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " Colors
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'sjl/badwolf'
+Plug 'ajh17/Spacegray.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'ChrisKempson/Vim-Tomorrow-Theme'
+Plug 'morhetz/gruvbox'
+Plug 'Keithbsmiley/rspec.vim'
+Plug 'sjl/badwolf'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'gilgigilgil/anderson.vim'
 
 " Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Ruby/Rails
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rbenv'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'jgdavey/tslime.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'vim-ruby/vim-ruby'
+Plug 'thoughtbot/vim-rspec'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'ngmy/vim-rubocop'
+Plug 'jgdavey/tslime.vim'
 
 " Javascript
-Plugin 'othree/html5.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'walm/jshint.vim'
-Plugin 'jQuery'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'walm/jshint.vim'
+Plug 'jQuery'
 
 " AIRLINE
-Plugin 'bling/vim-airline'
-Plugin 'file-line'
+Plug 'bling/vim-airline'
+Plug 'file-line'
 
 " HTML
-Plugin 'gregsexton/MatchTag'
+Plug 'gregsexton/MatchTag'
+call plug#end()
 
-set nocompatible
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                         set ft=gitcommit
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Guardfile,*.rake,config.ru}    set ft=ruby
-colorscheme badwolf
+syntax on
 filetype plugin indent on
+set nocompatible
 set autoindent
 set backspace=indent,eol,start
 set background=light
@@ -95,6 +110,11 @@ set textwidth=0
 set wildmenu
 set wildmode=longest,list
 set number
+set modeline
+set modelines=1
+
+" Indexed Search
+let g:indexed_search_colors = 0
 
 "SPEEEEEEEEEEEEEED
 set re=1
@@ -119,45 +139,12 @@ nmap <leader>a <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
-" Ctrl-P Settings
-"
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ -U
-  let g:ctrlp_user_command = 'ag %s -Ul --nocolor --hidden -g ""'
-  let g:ctrlp_use_caching = 0
-endif
-
-if !has('python')
-  echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
-
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_files = 0
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gm :CtrlP app/models<cr>
-map <leader>gh :CtrlP app/helpers<cr>
-map <leader>ga :CtrlP app/assets<cr>
-map <leader>gs :CtrlP app/services<cr>
-map <leader>gt :CtrlP spec2/<cr>
-map <leader>gx :CtrlP spec/<cr>
-map <leader>gl :CtrlP lib<cr>
-map <leader>gp :CtrlP config<cr>
-map <leader>f5 :CtrlPClearCache<cr>:CtrlP<cr>
-
-" Mapping
+" Mappings
+nnoremap <silent> Y :execute "noh"<CR>
+nnoremap <silent> <C-p> :execute "FZF"<CR>
+imap <leader>j <Esc> 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 xnoremap p pgvy
-imap JJ <Esc>
-imap <C-b> binding.pry<cr>
