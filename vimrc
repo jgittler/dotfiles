@@ -13,8 +13,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 "fuzzy finding
-Plug 'junegunn/fzf', { 'dir': '/home/vagrant/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 
 " Utility
 Plug 'henrik/vim-indexed-search'
@@ -62,6 +64,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
 Plug 'jQuery'
+Plug 'mxw/vim-jsx'
+Plug 'vim-jsx'
 
 " AIRLINE
 Plug 'bling/vim-airline'
@@ -148,7 +152,7 @@ nmap <Leader>d :call RemoveAllDebuggers()<cr>
 
 " Mappings
 nnoremap <silent> Y :execute "noh"<CR>
-nnoremap <silent> <C-p> :execute "FZF"<CR>
+" nnoremap <silent> <C-p> :execute "FZF"<CR>
 imap <leader>j <Esc> 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
