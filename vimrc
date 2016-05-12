@@ -13,8 +13,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 "fuzzy finding
-Plug 'junegunn/fzf', { 'dir': '/home/vagrant/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 
 " Utility
 Plug 'henrik/vim-indexed-search'
@@ -60,6 +62,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
 Plug 'jQuery'
+Plug 'mxw/vim-jsx'
+Plug 'vim-jsx'
 
 " AIRLINE
 Plug 'bling/vim-airline'
@@ -139,9 +143,34 @@ nmap <leader>a <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
+" Ctrl-P Settings
+"
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor\ -U
+  let g:ctrlp_user_command = 'ag %s -Ul --nocolor --hidden -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+if !has('python')
+  echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0
+
 " Mappings
 nnoremap <silent> Y :execute "noh"<CR>
-nnoremap <silent> <C-p> :execute "FZF"<CR>
+" nnoremap <silent> <C-p> :execute "FZF"<CR>
 imap <leader>j <Esc> 
 noremap <Up> <NOP>
 noremap <Down> <NOP>

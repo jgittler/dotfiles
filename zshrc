@@ -31,6 +31,11 @@ alias vv='vim ~/dotfiles/vimrc'
 alias vg='vim ~/dotfiles/gitconfig'
 alias vt='vim ~/dotfiles/tmux.conf'
 alias vpg='vim /etc/postgresql/9.4/main'
+alias jump='cd ~/Documents/vagrant-ude-master/; vagrant up; vagrant ssh'
+alias v='vim'
+alias vi='vim'
+alias vim='/usr/local/Cellar/vim/7.4.903/bin/vim'
+alias startredis='redis-server /usr/local/etc/redis.conf'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
@@ -53,4 +58,4 @@ echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
