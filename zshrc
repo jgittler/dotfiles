@@ -30,13 +30,17 @@ alias vz='vim ~/dotfiles/zshrc'
 alias vv='vim ~/dotfiles/vimrc'                                                         
 alias vg='vim ~/dotfiles/gitconfig'
 alias vt='vim ~/dotfiles/tmux.conf'
-alias vpg='vim /etc/postgresql/9.4/main'
+alias vpg='sudo vim /etc/postgresql/9.4/main'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
 check() {
   ps aux | grep $1
+}
+
+rspec() {
+  bundle exec rpsec $1 --color
 }
 
 # paths

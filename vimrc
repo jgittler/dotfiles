@@ -28,6 +28,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'Valloric/YouCompleteMe'
 Plug 'snipMate'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'vim-multiple-cursors'
+Plug 'mcasper/vim-infer-debugger'
 
 " Colors
 Plug 'ajh17/Spacegray.vim'
@@ -138,6 +140,11 @@ vmap <ENTER> <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
+
+" Debugger
+nmap <Leader>b :call AddDebugger("O")<cr>
+nmap <Leader>b :call AddDebugger("o")<cr>
+nmap <Leader>d :call RemoveAllDebuggers()<cr>
 
 " Mappings
 nnoremap <silent> Y :execute "noh"<CR>
