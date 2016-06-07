@@ -49,6 +49,10 @@ Plug 'gilgigilgil/anderson.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+
 " Ruby/Rails
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
@@ -65,7 +69,6 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
 Plug 'jQuery'
 Plug 'mxw/vim-jsx'
-Plug 'vim-jsx'
 
 " AIRLINE
 Plug 'bling/vim-airline'
@@ -150,9 +153,12 @@ nmap <Leader>b :call AddDebugger("O")<cr>
 nmap <Leader>b :call AddDebugger("o")<cr>
 nmap <Leader>d :call RemoveAllDebuggers()<cr>
 
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0
+
 " Mappings
 nnoremap <silent> Y :execute "noh"<CR>
-" nnoremap <silent> <C-p> :execute "FZF"<CR>
+nnoremap <silent> <C-p> :execute "FZF"<CR>
 imap <leader>j <Esc> 
 noremap <Up> <NOP>
 noremap <Down> <NOP>

@@ -30,17 +30,19 @@ alias vz='vim ~/dotfiles/zshrc'
 alias vv='vim ~/dotfiles/vimrc'                                                         
 alias vg='vim ~/dotfiles/gitconfig'
 alias vt='vim ~/dotfiles/tmux.conf'
-alias vpg='sudo vim /etc/postgresql/9.4/main'
+alias vpg='sudo vim /usr/local/var/postgres'
+alias jump='cd ~/Documents/vagrant-ude-master/; vagrant up; vagrant ssh'
+alias v='vim'
+alias vi='vim'
+alias vim='/usr/local/Cellar/vim/7.4.903/bin/vim'
+alias startredis='redis-server /usr/local/etc/redis.conf'
+alias startmem='/usr/local/opt/memcached/bin/memcached'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
 check() {
   ps aux | grep $1
-}
-
-rspec() {
-  bundle exec rpsec $1 --color
 }
 
 # paths
@@ -56,5 +58,14 @@ echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# Elixir env var path
+export PATH="$PATH:/path/to/elixir/bin"
+
 # FZF
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# z.sh
+# `brew --prefix`/etc/profile.d/z.sh
+if command -v brew >/dev/null 2>&1; then
+  [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
