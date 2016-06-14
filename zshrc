@@ -3,12 +3,9 @@
 #####################
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="muse"
+ZSH_THEME="awesomepanda"
 
-COMPLETION_WAITING_DOTS="true"
-
-plugins=(themes)
-# plugins=(ruby cp autojump command-not-found lol sprunge git gitfast git_remote_branch rails bundler rbenv rake capistrano colored-man colorize dirpersist history profiles vundle rand-quote)
+plugins=(git zsh-completions svn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,16 +47,14 @@ export PATH=/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/redis/bin:/us
 export RBENV_ROOT="/usr/local/rbenv"
 eval "$(rbenv init - --no-rehash)"
 
-function git_prompt_info() {
-ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Elixir env var path
 export PATH="$PATH:/path/to/elixir/bin"
+
+# themekit path
+PATH=/Users/jasongittler/.themekit:$PATH
 
 # FZF
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
