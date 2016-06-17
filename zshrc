@@ -37,7 +37,6 @@ alias startmem='/usr/local/opt/memcached/bin/memcached'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
 check() {
   ps aux | grep $1
 }
