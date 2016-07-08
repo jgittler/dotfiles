@@ -53,6 +53,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
+" Liquid (Shopify)
+Plug 'tpope/vim-liquid'
+
 " Ruby/Rails
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
@@ -61,6 +64,7 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
 Plug 'jgdavey/tslime.vim'
+Plug 'sunaku/vim-ruby-minitest'
 
 " Javascript
 Plug 'othree/html5.vim'
@@ -157,6 +161,8 @@ nmap <Leader>d :call RemoveAllDebuggers()<cr>
 let g:jsx_ext_required = 0
 
 " Mappings
+nmap <Leader>n :execute ":set nu!"<CR>
+nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
 nnoremap <silent> <C-p> :execute "FZF"<CR>
 imap <leader>j <Esc> 

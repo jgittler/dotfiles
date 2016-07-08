@@ -34,6 +34,7 @@ alias vi='vim'
 alias vim='/usr/local/Cellar/vim/7.4.903/bin/vim'
 alias startredis='redis-server /usr/local/etc/redis.conf'
 alias startmem='/usr/local/opt/memcached/bin/memcached'
+alias db='cat ~/Procore/procore/config/database.yml'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
