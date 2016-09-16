@@ -31,10 +31,11 @@ alias vpg='sudo vim /usr/local/var/postgres'
 alias jump='cd ~/Documents/vagrant-ude-master/; vagrant up; vagrant ssh'
 alias v='vim'
 alias vi='vim'
-alias vim='/usr/local/Cellar/vim/7.4.903/bin/vim'
+alias vim='/usr/local/Cellar/vim/8.0.0002/bin/vim'
 alias startredis='redis-server /usr/local/etc/redis.conf'
 alias startmem='/usr/local/opt/memcached/bin/memcached'
 alias db='cat ~/Procore/procore/config/database.yml'
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
@@ -64,3 +65,7 @@ PATH=/Users/jasongittler/.themekit:$PATH
 if command -v brew >/dev/null 2>&1; then
   [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
+
+# Syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/usr/local/bin:$PATH"

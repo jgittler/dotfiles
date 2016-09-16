@@ -15,8 +15,6 @@ Plug 'junegunn/limelight.vim'
 "fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
 
 " Utility
 Plug 'henrik/vim-indexed-search'
@@ -27,11 +25,11 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'kana/vim-textobj-user'
-Plug 'Valloric/YouCompleteMe'
 Plug 'snipMate'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'vim-multiple-cursors'
 Plug 'mcasper/vim-infer-debugger'
+Plug 'Shougo/neocomplete.vim'
 
 " Colors
 Plug 'ajh17/Spacegray.vim'
@@ -159,6 +157,9 @@ nmap <Leader>d :call RemoveAllDebuggers()<cr>
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
 
 " Mappings
 nmap <Leader>n :execute ":set nu!"<CR>

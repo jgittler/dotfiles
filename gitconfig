@@ -23,7 +23,7 @@
 [push]
   default = current
 [core]
-  editor = vim
+	editor = vim
   autocrlf = input
   excludesfile = /home/mikeastock/.gitignore
 [color]
