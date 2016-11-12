@@ -162,6 +162,12 @@ let g:jsx_ext_required = 0
 let g:neocomplete#enable_at_startup = 1
 
 " Mappings
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+  map < <C-W><
+  map > <C-W>>
+endif
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
@@ -172,3 +178,5 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 xnoremap p pgvy
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>

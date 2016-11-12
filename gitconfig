@@ -20,6 +20,8 @@
   su = submodule update --init --recursive
   pim = pull origin master
   stl = stash list
+  sta = "!f() { git stash apply stash@{$1}; }; f"
+  std = "!f() { git stash drop stash@{$1}; }; f"
 [push]
   default = current
 [core]
