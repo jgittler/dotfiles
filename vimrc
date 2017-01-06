@@ -13,8 +13,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 "fuzzy finding
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 
 " Utility
 Plug 'henrik/vim-indexed-search'
@@ -165,13 +164,13 @@ let g:neocomplete#enable_at_startup = 1
 if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
-  map < <C-W><
-  map > <C-W>>
+  map { <C-W><
+  map } <C-W>>
 endif
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
-nnoremap <silent> <C-p> :execute "FZF"<CR>
+nnoremap <silent> <C-p> :FZF<CR>
 imap <leader>j <Esc> 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
