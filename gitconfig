@@ -39,7 +39,7 @@
   commit = green
   frag = "165 bold"
   old = red bold
-  new = green bold
+  new = cyan bold
   whitespace = red reverse
 [color "diff-highlight"]
   oldNormal = red bold
