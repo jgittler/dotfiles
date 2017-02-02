@@ -29,6 +29,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'vim-multiple-cursors'
 Plug 'mcasper/vim-infer-debugger'
 Plug 'Shougo/neocomplete.vim'
+Plug 'unblevable/quick-scope'
 
 " Colors
 Plug 'ajh17/Spacegray.vim'
@@ -167,6 +168,7 @@ if bufwinnr(1)
   map { <C-W><
   map } <C-W>>
 endif
+vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
