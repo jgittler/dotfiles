@@ -43,6 +43,10 @@ check() {
   ps aux | grep $1
 }
 
+brewupgrade() {
+  brew upgrade $1 && brew cleanup $1
+}
+
 # paths
 export PATH=/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
 export RBENV_ROOT="/usr/local/rbenv"

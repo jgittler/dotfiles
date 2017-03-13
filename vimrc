@@ -8,6 +8,7 @@ let g:gruvbox_contrast_dark='hard'
 "============================
 " BASIC EDITING CONFIGURATION
 call plug#begin('~/.vim/bundle')
+
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -78,6 +79,8 @@ Plug 'file-line'
 
 " HTML
 Plug 'gregsexton/MatchTag'
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                         set ft=gitcommit
