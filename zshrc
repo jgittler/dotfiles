@@ -30,11 +30,9 @@ alias vz='vim ~/dotfiles/zshrc'
 alias vv='vim ~/dotfiles/vimrc'                                                         
 alias vg='vim ~/dotfiles/gitconfig'
 alias vt='vim ~/dotfiles/tmux.conf'
-alias jump='cd ~/Documents/vagrant-ude-master/; vagrant up; vagrant ssh'
 alias v='vim'
 alias startredis='redis-server /usr/local/etc/redis.conf'
 alias startmem='/usr/local/opt/memcached/bin/memcached'
-alias db='cat ~/Procore/procore/config/database.yml'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
@@ -45,6 +43,10 @@ check() {
 
 brewupgrade() {
   brew upgrade $1 && brew cleanup $1
+}
+
+gitfco() {
+  if [[ $(git br | grep -c $1) == 1 ]]; then git br | grep $1 | xargs git co; else git br | grep $1; fi
 }
 
 # paths
