@@ -49,6 +49,13 @@ gitfco() {
   if [[ $(git br | grep -c $1) == 1 ]]; then git br | grep $1 | xargs git co; else git br | grep $1; fi
 }
 
+usage() {
+  _limit=${1:-"5"}
+  _sort=${1:-"3"} # %CPU
+  v=$(stty size | cut -d ' ' -f2)
+  ps aux | cut -c1-$v | head -n "$_limit" | sort -nrk "$_sort"
+}
+
 # paths
 export PATH=/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
 export RBENV_ROOT="/usr/local/rbenv"
