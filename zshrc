@@ -34,6 +34,7 @@ alias v='vim'
 alias startredis='redis-server /usr/local/etc/redis.conf'
 alias startmem='/usr/local/opt/memcached/bin/memcached'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
+alias miex='iex -S mix'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
