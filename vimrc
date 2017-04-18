@@ -1,9 +1,6 @@
 " Leader
 :let mapleader = " "
-
-" Colorscheme settings
-let g:gruvbox_italic=0
-let g:gruvbox_contrast_dark='hard'
+syntax enable
 
 "============================
 " BASIC EDITING CONFIGURATION
@@ -33,16 +30,11 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'unblevable/quick-scope'
 
 " Colors
-Plug 'ajh17/Spacegray.vim'
 Plug 'nanotech/jellybeans.vim'
-Plug 'ChrisKempson/Vim-Tomorrow-Theme'
 Plug 'morhetz/gruvbox'
-Plug 'Keithbsmiley/rspec.vim'
 Plug 'sjl/badwolf'
-Plug 'jpo/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'gilgigilgil/anderson.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -51,6 +43,10 @@ Plug 'airblade/vim-gitgutter'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+let g:alchemist_tag_disable = 1
+
+Plug 'c-brenn/phoenix.vim'
+Plug 'tpope/vim-projectionist'
 
 " Liquid (Shopify)
 Plug 'tpope/vim-liquid'
@@ -143,9 +139,11 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" ctags stuff i don't understand
+" ctags
+set tags=./tags,tags;$HOME
 map <A-[> :tab split<CR>:exec("tag ".expand(<cword>))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand(<cword>))<CR>
+
 "Start Interactive EasyAlign in visual mode
 vmap <ENTER> <Plug>(EasyAlign)
 "Start Interactive EasyAlign with a Vim movement
@@ -176,7 +174,7 @@ nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
 nnoremap <silent> <C-p> :FZF<CR>
-imap <leader>j <Esc> 
+imap <leader>jj <Esc> 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -184,3 +182,7 @@ noremap <Right> <NOP>
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+map <Leader>gb :Gblame<CR>
+
+" Colorscheme settings
+colorscheme desert
