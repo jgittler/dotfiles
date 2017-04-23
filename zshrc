@@ -43,6 +43,12 @@ check() {
   ps aux | grep $1
 }
 
+vl() {
+  _now=$(date +%Y-%m-%d:%H:%M:%S)
+  _file="vim-log-$_now.log"
+  vim $1 -V9$_file
+}
+
 brewupgrade() {
   for package in "$@"
   do
