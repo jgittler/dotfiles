@@ -14,7 +14,8 @@ source $ZSH/oh-my-zsh.sh
 ######################
 source ~/.nvm/nvm.sh
 
-# use vim as the visual editor export VISUAL=vim
+# use vim as the visual editor
+export VISUAL=vim
 export EDITOR=$VISUAL
 export DISABLE_AUTO_TITLE=true
 
@@ -34,6 +35,7 @@ alias startredis='redis-server /usr/local/etc/redis.conf'
 alias startmem='/usr/local/opt/memcached/bin/memcached'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 alias miex='iex -S mix'
+alias muxi='tmuxinator'
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # fuctions
@@ -42,7 +44,15 @@ check() {
 }
 
 brewupgrade() {
-  brew upgrade $1 && brew cleanup $1
+  for package in "$@"
+  do
+    brew upgrade $package && brew cleanup $package
+  done
+}
+
+brewupdate() {
+  brew update
+  brew outdated | xargs -0 -I package read -p 'Do you want to upgrade and cleanup ${package}? [yY/nN] ' answer; case "${answer}" in [yY]) $(brew uprgade $package && brew cleanup $package) ;; [nN]) $(echo 'no') ;; esac
 }
 
 gitfco() {
@@ -66,8 +76,11 @@ export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/
 # rbenv
 eval "$(rbenv init -)"
 
-### Added by the Heroku Toolbelt
+# added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# tmuxinator
+source ~/dotfiles/tmuxinator.zsh
 
 # Elixir env var path
 source "$HOME/.kiex/scripts/kiex"
