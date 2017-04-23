@@ -1,0 +1,18 @@
+\set QUIET 1
+\pset null '[NULL]'
+
+-- prompts
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+\set PROMPT2 '[more] %R > '
+
+-- query times
+\timing
+
+-- output
+\x auto
+\set ON_ERROR_ROLLBACK interactive
+\set VERBOSITY verbose
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+\unset QUIET

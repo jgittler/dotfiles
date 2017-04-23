@@ -55,6 +55,14 @@ brewupdate() {
   brew outdated | xargs -0 -I package read -p 'Do you want to upgrade and cleanup ${package}? [yY/nN] ' answer; case "${answer}" in [yY]) $(brew uprgade $package && brew cleanup $package) ;; [nN]) $(echo 'no') ;; esac
 }
 
+themeinit() {
+  if theme update ; then
+    theme watch
+  else
+    theme watch
+  fi
+}
+
 gitfco() {
   if [[ $(git br | grep -c $1) == 1 ]]; then git br | grep $1 | xargs git co; else git br | grep $1; fi
 }
