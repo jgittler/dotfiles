@@ -14,6 +14,21 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 export DISABLE_AUTO_TITLE=true
 
+# ls colors
+export CLICOLOR=1
+export LSCOLORS="gxfxcxdxBxeggdabhegcAd"
+
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt hist_ignore_dups
+setopt append_history
+setopt hist_ignore_space
+setopt inc_append_history
+setopt inc_append_history_time
+setopt extended_history
+
 # aliases
 . ~/.aliases
 

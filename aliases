@@ -1,5 +1,7 @@
 # utility
-alias lh='ls -alF'
+alias ls='ls -GF'
+alias lh='ls -a'
+alias la='ls -lhrSa'
 alias vz='vim ~/dotfiles/zshrc'                                                         
 alias vv='vim ~/dotfiles/vimrc'                                                         
 alias vg='vim ~/dotfiles/gitconfig'

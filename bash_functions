@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # utility
 check() {
   ps aux | grep $1
@@ -27,7 +29,17 @@ brewupgrade() {
 
 brewupdate() {
   brew update
-  brew outdated | xargs -0 -I package read -p 'Do you want to upgrade and cleanup ${package}? [yY/nN] ' answer; case "${answer}" in [yY]) $(brew uprgade $package && brew cleanup $package) ;; [nN]) $(echo 'no') ;; esac
+  for package in $(brew outdated)
+  do
+    print -n "Do you want to upgrade and cleanup $(tput bold)${package}$(tput sgr0)? $(tput setaf 1)[yY/nN]$(tput sgr0) "
+    read answer
+    case "${answer}" in
+      [yY])
+        brew upgrade $package && brew cleanup $package ;;
+      [nN])
+        echo "passed on updating $(tput bold)${package}$(tput sgr0)" ;;
+    esac
+  done
 }
 
 # themekit
