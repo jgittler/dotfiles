@@ -6,7 +6,7 @@ alias vz='vim ~/dotfiles/zshrc'
 alias vv='vim ~/dotfiles/vimrc'                                                         
 alias vg='vim ~/dotfiles/gitconfig'
 alias vt='vim ~/dotfiles/tmux.conf'
-alias vt='vim ~/dotfiles/psqlrc.conf'
+alias vp='vim ~/dotfiles/psqlrc'
 alias v='vim'
 
 # rails
@@ -14,7 +14,7 @@ alias be='bundle exec'
 alias br='bin/rails'                                                          
 alias brs='bin/rspec'                                                          
 alias brk='bin/rake'                                                          
-alias dbreset='bin/rake db:drop db:create'
+alias dbreset='bin/rake -t db:drop db:create'
 
 # elixir
 alias miex='iex -S mix'

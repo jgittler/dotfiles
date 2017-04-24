@@ -5,6 +5,8 @@ windows:
   - workplace:
       layout: 28b0,202x47,0,0[202x33,0,0,0,202x13,0,34{100x13,0,34,1,101x13,101,34,2}]
       panes:
+        - git:
+          - git st
+          - tmux swap-pane -D
         - vim
-        - git st
         - themeinit
