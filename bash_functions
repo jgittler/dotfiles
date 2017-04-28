@@ -12,6 +12,16 @@ usage() {
   ps aux | cut -c1-$v | head -n "$_limit" | sort -nrk "$_sort"
 }
 
+replace() {
+  replaced="$1"; shift
+  replace_with="$1"; shift
+  files=($(ag -l "$replaced"))
+  for file in $files
+  do
+    sed -i '' "s/$replaced/$replace_with/" "$file"
+  done
+}
+
 # vim
 vl() {
   _now=$(date +%Y-%m-%d:%H:%M:%S)

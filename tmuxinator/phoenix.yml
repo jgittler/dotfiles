@@ -1,4 +1,4 @@
-name: rails
+name: phoenix
 root: ./
 
 windows:
@@ -9,6 +9,6 @@ windows:
           - git st
           - tmux swap-pane -D
         - vim
-        - br c
+        - miex
   - server:
-    - br s
+    - mix phoenix.server
