@@ -8,6 +8,7 @@ alias vg='vim ~/dotfiles/gitconfig'
 alias vt='vim ~/dotfiles/tmux.conf'
 alias vp='vim ~/dotfiles/psqlrc'
 alias v='vim'
+alias reload='source ~/.zshrc'
 
 # rails
 alias be='bundle exec'                                                          

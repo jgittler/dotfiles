@@ -54,7 +54,6 @@ Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 Plug 'vim-ruby/vim-ruby'
-Plug 'thoughtbot/vim-rspec'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
 Plug 'jgdavey/tslime.vim'
@@ -68,7 +67,11 @@ Plug 'walm/jshint.vim'
 Plug 'jQuery'
 Plug 'mxw/vim-jsx'
 
-" AIRLINE
+" Tests
+Plug 'janko-m/vim-test'
+Plug 'benmills/vimux'
+
+" Airline
 Plug 'bling/vim-airline'
 Plug 'file-line'
 
@@ -125,7 +128,7 @@ set modelines=1
 " Indexed Search
 let g:indexed_search_colors = 0
 
-"SPEEEEEEEEEEEEEED
+" Speed
 set re=1
 
 " Prevent Vim from clobbering the scrollback buffer. See
@@ -160,6 +163,12 @@ let g:jsx_ext_required = 0
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
+
+" vim-test
+let test#strategy = "vimux"
+let g:test#preserve_screen = 1
+nmap <silent> <leader>s :TestNearest<CR>
+nmap <silent> <leader>t :TestFile<CR>
 
 " Mappings
 if bufwinnr(1)

@@ -7,7 +7,7 @@
   com = checkout master
   cm = commit
   st = status
-  br = branch
+  br = for-each-ref --sort=-committerdate --format='%(refname:short) %(color:green)%(authorname)%(color:reset) %(color:red)%(committerdate:relative)%(color:reset)' refs/heads/
   df = diff --color
   dfom = diff master --color
   pl = pull

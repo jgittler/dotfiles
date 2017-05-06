@@ -63,7 +63,20 @@ themeinit() {
 
 # git
 gitfco() {
-  if [[ $(git br | grep -c $1) == 1 ]]; then git br | grep $1 | xargs git co; else git br | ag $1; fi
+  if [[ $(git branch | grep -c $1) == 1 ]]; then git branch | grep $1 | xargs git co; else git br | ag $1; fi
+
+}
+
+gitc() {
+  _allowed_types=(feat fix docs style refactor test chore)
+  if [[ ! $_allowed_types =~ (^| )$1($| ) ]]; then echo "Invalid commit message type: ${1}"; else
+    if [ -z "$2" ]
+    then
+      git commit -m "$1: " -e
+    else
+      git commit -m "$1: $2"
+    fi
+  fi
 }
 
 # rails
