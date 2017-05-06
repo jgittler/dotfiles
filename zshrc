@@ -9,8 +9,8 @@ source $ZSH/oh-my-zsh.sh
 # zsh configs
 source ~/.nvm/nvm.sh
 
-# use vim as the visual editor
-export VISUAL=vim
+# use nvim as the visual editor
+export VISUAL=nvim
 export EDITOR=$VISUAL
 export DISABLE_AUTO_TITLE=true
 

@@ -25,7 +25,7 @@
 [push]
   default = current
 [core]
-	editor = vim
+	editor = nvim
   autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]

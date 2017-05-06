@@ -4,7 +4,7 @@ syntax enable
 
 "============================
 " BASIC EDITING CONFIGURATION
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
@@ -22,11 +22,10 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'kana/vim-textobj-user'
-Plug 'snipMate'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mcasper/vim-infer-debugger'
-Plug 'Shougo/neocomplete.vim'
 Plug 'unblevable/quick-scope'
+Plug 'Valloric/YouCompleteMe'
 
 " Colors
 Plug 'nanotech/jellybeans.vim'
@@ -64,7 +63,7 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
-Plug 'jQuery'
+Plug 'vim-scripts/jQuery'
 Plug 'mxw/vim-jsx'
 
 " Tests
@@ -73,7 +72,7 @@ Plug 'benmills/vimux'
 
 " Airline
 Plug 'bling/vim-airline'
-Plug 'file-line'
+Plug 'vim-scripts/file-line'
 
 " HTML
 Plug 'gregsexton/MatchTag'
@@ -85,7 +84,6 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                         s
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Guardfile,*.rake,config.ru}    set ft=ruby
 syntax on
 filetype plugin indent on
-set nocompatible
 set autoindent
 set backspace=indent,eol,start
 set background=light
@@ -124,6 +122,7 @@ set wildmode=longest,list
 set number
 set modeline
 set modelines=1
+set clipboard=unnamed
 
 " Indexed Search
 let g:indexed_search_colors = 0
@@ -161,8 +160,10 @@ nmap <Leader>d :call RemoveAllDebuggers()<cr>
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
 
-" NeoComplete
+" YouCompleteMe
 let g:neocomplete#enable_at_startup = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 
 " vim-test
 let test#strategy = "vimux"

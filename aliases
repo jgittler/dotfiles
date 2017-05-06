@@ -2,12 +2,12 @@
 alias ls='ls -GF'
 alias lh='ls -a'
 alias la='ls -lhrSa'
-alias vz='vim ~/dotfiles/zshrc'                                                         
-alias vv='vim ~/dotfiles/vimrc'                                                         
-alias vg='vim ~/dotfiles/gitconfig'
-alias vt='vim ~/dotfiles/tmux.conf'
-alias vp='vim ~/dotfiles/psqlrc'
-alias v='vim'
+alias vz='v ~/dotfiles/zshrc'                                                         
+alias vv='v ~/dotfiles/nvim/init.vim'
+alias vg='v ~/dotfiles/gitconfig'
+alias vt='v ~/dotfiles/tmux.conf'
+alias vp='v ~/dotfiles/psqlrc'
+alias v='nvim'
 alias reload='source ~/.zshrc'
 
 # rails

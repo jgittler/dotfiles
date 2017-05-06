@@ -8,7 +8,7 @@ windows:
         - git:
           - git st
           - tmux swap-pane -D
-        - vim
+        - nvim
         - miex
   - server:
     - mix phoenix.server

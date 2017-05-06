@@ -22,11 +22,11 @@ replace() {
   done
 }
 
-# vim
+# nvim
 vl() {
   _now=$(date +%Y-%m-%d:%H:%M:%S)
-  _file="vim-log-$_now.log"
-  vim $1 -V9$_file
+  _file="nvim-log-$_now.log"
+  nvim $1 -V9$_file
 }
 
 # homebrew

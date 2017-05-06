@@ -8,5 +8,5 @@ windows:
         - git:
           - git st
           - tmux swap-pane -D
-        - vim
+        - nvim
         - themeinit
