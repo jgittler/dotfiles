@@ -25,7 +25,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mcasper/vim-infer-debugger'
 Plug 'unblevable/quick-scope'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Colors
 Plug 'nanotech/jellybeans.vim'
@@ -160,14 +160,13 @@ nmap <Leader>d :call RemoveAllDebuggers()<cr>
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
 
-" YouCompleteMe
-let g:neocomplete#enable_at_startup = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
+" Auto Complete
+let g:deoplete#enable_at_startup = 1
 
 " vim-test
 let test#strategy = "vimux"
 let g:test#preserve_screen = 1
+let g:VimuxHeight = "30"
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 

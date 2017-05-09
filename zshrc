@@ -35,6 +35,11 @@ setopt extended_history
 # fuctions
 . ~/.bash_functions
 
+# exercism
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
+
 # paths
 export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
 
