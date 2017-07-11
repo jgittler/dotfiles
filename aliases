@@ -7,6 +7,7 @@ alias vv='v ~/dotfiles/nvim/init.vim'
 alias vg='v ~/dotfiles/gitconfig'
 alias vt='v ~/dotfiles/tmux.conf'
 alias vp='v ~/dotfiles/psqlrc'
+alias vf='v ~/dotfiles/bash_functions'
 alias v='nvim'
 alias reload='source ~/.zshrc'
 
@@ -29,3 +30,7 @@ alias muxi='tmuxinator'
 # services
 alias startredis='redis-server /usr/local/etc/redis.conf'
 alias startmem='/usr/local/opt/memcached/bin/memcached'
+
+# ctags
+alias tagme='ctags -R ./tags .'
+

@@ -80,6 +80,6 @@ gitc() {
 }
 
 # rails
-frailsroutes() {
+rroutes() {
   brk routes | grep $1 | tr -s " " | sed -e "G;"
 }

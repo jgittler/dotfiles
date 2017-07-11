@@ -4,14 +4,14 @@ syntax enable
 
 "============================
 " BASIC EDITING CONFIGURATION
-call plug#begin('~/.config/nvim/plugged')
-
+call plug#begin('~/.config/nvim/plugged') 
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 "fuzzy finding
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Utility
 Plug 'henrik/vim-indexed-search'
@@ -26,6 +26,8 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mcasper/vim-infer-debugger'
 Plug 'unblevable/quick-scope'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'foosoft/vim-argwrap'
+Plug 'terryma/vim-multiple-cursors'
 
 " Colors
 Plug 'nanotech/jellybeans.vim'
@@ -41,8 +43,6 @@ Plug 'airblade/vim-gitgutter'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
-let g:alchemist_tag_disable = 1
-
 Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist'
 
@@ -141,14 +141,11 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " ctags
-set tags=./tags,tags;$HOME
-map <A-[> :tab split<CR>:exec("tag ".expand(<cword>))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand(<cword>))<CR>
+set tags+=./tags
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "Start Interactive EasyAlign in visual mode
 vmap <ENTER> <Plug>(EasyAlign)
-"Start Interactive EasyAlign with a Vim movement
-nmap <leader>a <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
@@ -156,6 +153,12 @@ let g:bufferline_echo = 0
 nmap <Leader>b :call AddDebugger("O")<cr>
 nmap <Leader>b :call AddDebugger("o")<cr>
 nmap <Leader>d :call RemoveAllDebuggers()<cr>
+
+" Multiple Cursors
+let g:multi_cursor_quit_key='<C-d>'
+
+" Alchemist
+let g:alchemist_tag_disable = 1
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
@@ -170,23 +173,40 @@ let g:VimuxHeight = "30"
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 
-" Mappings
+" fzf
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap K :Rg <C-R><C-W><CR>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" Arg Wrap
+nmap <Leader>a :ArgWrap<CR>
+
+" Resize Windows
 if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
   map { <C-W><
   map } <C-W>>
 endif
-vnoremap <C-c> "*y
-nmap <Leader>n :execute ":set nu!"<CR>
-nmap <Leader>g :execute "GitGutterToggle"<CR>
-nnoremap <silent> Y :execute "noh"<CR>
-nnoremap <silent> <C-p> :FZF<CR>
-imap <leader>jj <Esc> 
+
+" No Arrow Keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+vnoremap <C-c> "*y
+nmap <Leader>n :execute ":set nu!"<CR>
+nmap <Leader>g :execute "GitGutterToggle"<CR>
+nnoremap <silent> Y :execute "noh"<CR>
+imap <leader>q <Esc> 
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
