@@ -41,12 +41,12 @@ brewupdate() {
   brew update
   for package in $(brew outdated)
   do
-    print -n "Do you want to upgrade and cleanup $(tput bold)${package}$(tput sgr0)? $(tput setaf 1)[yY/nN]$(tput sgr0) "
+    print -n "Do you want to upgrade and cleanup $(tput bold)${package}$(tput sgr0)? $(tput setaf 1)[y/n]$(tput sgr0) "
     read answer
     case "${answer}" in
-      [yY])
+      [y])
         brew upgrade $package && brew cleanup $package ;;
-      [nN])
+      [n])
         echo "passed on updating $(tput bold)${package}$(tput sgr0)" ;;
     esac
   done

@@ -8,6 +8,7 @@ alias vg='v ~/dotfiles/gitconfig'
 alias vt='v ~/dotfiles/tmux.conf'
 alias vp='v ~/dotfiles/psqlrc'
 alias vf='v ~/dotfiles/bash_functions'
+alias vs='v ~/.ssh/config'
 alias v='nvim'
 alias reload='source ~/.zshrc'
 

@@ -28,6 +28,7 @@ Plug 'unblevable/quick-scope'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'foosoft/vim-argwrap'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'neomake/neomake'
 
 " Colors
 Plug 'nanotech/jellybeans.vim'
@@ -206,7 +207,7 @@ vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
-imap <leader>q <Esc> 
+" imap <leader>q <Esc> 
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
