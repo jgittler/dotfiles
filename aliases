@@ -26,6 +26,9 @@ alias miex='iex -S mix'
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 
 # tmux
+alias tma='tmux att -t'
+alias tmk='tmux kill-session -t'
+alias tmn='tmux new -s'
 alias muxi='tmuxinator'
 
 # services
