@@ -15,7 +15,7 @@ usage() {
 replace() {
   replaced="$1"; shift
   replace_with="$1"; shift
-  files=($(ag -l "$replaced"))
+  files=($(rg -l "$replaced"))
   for file in $files
   do
     sed -i '' "s/$replaced/$replace_with/" "$file"

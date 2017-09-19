@@ -37,4 +37,3 @@ alias startmem='/usr/local/opt/memcached/bin/memcached'
 
 # ctags
 alias tagme='ctags -R ./tags .'
-

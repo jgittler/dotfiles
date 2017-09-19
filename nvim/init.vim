@@ -125,6 +125,9 @@ set modeline
 set modelines=1
 set clipboard=unnamed
 
+" for crontab editing
+set backupskip=/tmp/*,/private/tmp/*"
+
 " Indexed Search
 let g:indexed_search_colors = 0
 
@@ -207,7 +210,7 @@ vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
-" imap <leader>q <Esc> 
+imap <leader>q <Esc> 
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>

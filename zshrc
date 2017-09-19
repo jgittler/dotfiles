@@ -43,17 +43,20 @@ fi
 # paths
 export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
 
-# added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# heroku
+export PATH="/usr/local/bin/heroku:$PATH"
 
 # tmuxinator
 source ~/dotfiles/tmuxinator.zsh
 
-# Elixir env var path
-source "$HOME/.kiex/scripts/kiex"
-
-# themekit path
+# themekit
 PATH="/Users/jasongittler/.themekit:$PATH"
+
+# erlang
+PATH="/usr/local/bin/kerl:$PATH"
+
+# elixir
+source "$HOME/.kiex/scripts/kiex"
 
 # z stuff
 if command -v brew >/dev/null 2>&1; then
