@@ -63,7 +63,7 @@ themeinit() {
 
 # git
 gitfco() {
-  if [[ $(git branch | grep -c $1) == 1 ]]; then git branch | grep $1 | xargs git co; else git br | ag $1; fi
+  if [[ $(git branch | grep -c $1) == 1 ]]; then git branch | grep $1 | xargs git co; else git br | rg $1; fi
 
 }
 

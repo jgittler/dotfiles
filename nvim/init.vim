@@ -2,40 +2,32 @@
 :let mapleader = " "
 
 syntax enable 
-"============================
-" BASIC EDITING CONFIGURATION
-call plug#begin('~/.config/nvim/plugged') 
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
-"fuzzy finding
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+call plug#begin('~/.config/nvim/plugged')
 
 " Utility
-Plug 'henrik/vim-indexed-search'
 Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
-Plug 'rking/ag.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'kana/vim-textobj-user'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mcasper/vim-infer-debugger'
-Plug 'unblevable/quick-scope'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'foosoft/vim-argwrap'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
+
+" Search
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'henrik/vim-indexed-search'
 
 " Colors
-Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
-Plug 'sjl/badwolf'
-Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -121,9 +113,18 @@ set textwidth=0
 set wildmenu
 set wildmode=longest,list
 set number
+set relativenumber
 set modeline
 set modelines=1
 set clipboard=unnamed
+
+" nerdtree toggle
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * wincmd p
+map <Leader>l :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap <Leader>f :NERDTreeFind<CR>
 
 " for crontab editing
 set backupskip=/tmp/*,/private/tmp/*"
@@ -170,10 +171,13 @@ let g:jsx_ext_required = 0
 " Auto Complete
 let g:deoplete#enable_at_startup = 1
 
+" Tagbar
+nmap <Leader>m :TagbarToggle<CR>
+
 " vim-test
 let test#strategy = "vimux"
 let g:test#preserve_screen = 1
-let g:VimuxHeight = "30"
+let g:VimuxHeight = "33"
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 
@@ -211,11 +215,14 @@ vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
-imap <leader>q <Esc> 
+imap <leader>qq <Esc> 
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 map <Leader>gb :Gblame<CR>
 
 " Colorscheme settings
-colorscheme desert
+set termguicolors
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+set background=dark

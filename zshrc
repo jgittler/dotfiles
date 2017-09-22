@@ -45,7 +45,6 @@ export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/
 
 # heroku
 export PATH="/usr/local/bin/heroku:$PATH"
-
 # tmuxinator
 source ~/dotfiles/tmuxinator.zsh
 
@@ -70,4 +69,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--color --reverse"
