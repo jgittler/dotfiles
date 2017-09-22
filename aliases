@@ -21,6 +21,7 @@ alias dbreset='bin/rake -t db:drop db:create'
 
 # elixir
 alias miex='iex -S mix'
+alias phxs='mix phx.server'
 
 # js
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'

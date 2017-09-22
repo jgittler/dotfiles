@@ -1,7 +1,7 @@
 " Leader
 :let mapleader = " "
-syntax enable
 
+syntax enable 
 "============================
 " BASIC EDITING CONFIGURATION
 call plug#begin('~/.config/nvim/plugged') 
@@ -206,6 +206,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+vnoremap // y/<C-R>"<CR>
 vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
