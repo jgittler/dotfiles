@@ -71,6 +71,9 @@ Plug 'vim-scripts/file-line'
 Plug 'gregsexton/MatchTag'
 Plug 'mattn/emmet-vim'
 
+" Puppet
+Plug 'rodjek/vim-puppet'
+
 call plug#end()
 
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                         set ft=gitcommit
@@ -120,7 +123,7 @@ set clipboard=unnamed
 
 " nerdtree toggle
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * wincmd p
 map <Leader>l :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
