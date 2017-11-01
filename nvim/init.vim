@@ -2,7 +2,6 @@
 :let mapleader = " "
 
 syntax enable 
-
 call plug#begin('~/.config/nvim/plugged')
 
 " Utility
@@ -173,6 +172,7 @@ let g:jsx_ext_required = 0
 
 " Auto Complete
 let g:deoplete#enable_at_startup = 1
+set runtimepath+=~/Users/jasongittler/dotfiles/nvim/plugged/deoplete.nvim
 
 " Tagbar
 nmap <Leader>m :TagbarToggle<CR>
@@ -218,7 +218,7 @@ vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
-imap <leader>qq <Esc> 
+imap <C-i> <ESC>
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>

@@ -2,12 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="awesomepanda"
 
-plugins=(git zsh-completions svn)
-
-source $ZSH/oh-my-zsh.sh
-
-# zsh configs
-source ~/.nvm/nvm.sh
+plugins=(git zsh-completions svn) source $ZSH/oh-my-zsh.sh
 
 # use nvim as the visual editor
 export VISUAL=nvim
@@ -30,10 +25,10 @@ setopt inc_append_history_time
 setopt extended_history
 
 # aliases
-. ~/.aliases
+. ~/dotfiles/aliases
 
 # fuctions
-. ~/.bash_functions
+. ~/dotfiles/bash_functions
 
 # exercism
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
