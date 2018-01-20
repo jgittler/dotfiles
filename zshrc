@@ -41,6 +41,11 @@ export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/
 # heroku
 export PATH="/usr/local/bin/heroku:$PATH"
 
+# Pyenv
+export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # tmuxinator
 source ~/dotfiles/tmuxinator.zsh
 
@@ -52,6 +57,7 @@ PATH="/usr/local/bin/kerl:$PATH"
 
 # elixir
 source "$HOME/.kiex/scripts/kiex"
+PATH="/Users/jasongittler/.mix/escripts:$PATH"
 
 # z stuff
 if command -v brew >/dev/null 2>&1; then

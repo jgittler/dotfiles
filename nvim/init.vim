@@ -185,6 +185,7 @@ nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 
 " fzf
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap K :Rg <C-R><C-W><CR>
 command! -bang -nargs=* Rg
