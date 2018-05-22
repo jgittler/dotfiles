@@ -83,3 +83,12 @@ gitc() {
 rroutes() {
   brk routes | grep $1 | tr -s " " | sed -e "G;"
 }
+
+# elixir
+mixff() {
+  files=($(git ls-files -m))
+  for file in $files
+  do
+    mix format $file
+  done
+}

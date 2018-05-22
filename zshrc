@@ -38,6 +38,11 @@ fi
 # paths
 export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+eval "$(npm config delete prefix)"
+
 # heroku
 export PATH="/usr/local/bin/heroku:$PATH"
 

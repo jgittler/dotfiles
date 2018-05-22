@@ -1,4 +1,5 @@
 " Leader
+"
 :let mapleader = " "
 
 syntax enable 
@@ -57,6 +58,9 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
 Plug 'vim-scripts/jQuery'
 Plug 'mxw/vim-jsx'
+
+" Elm
+Plug 'elmcast/elm-vim'
 
 " Tests
 Plug 'janko-m/vim-test'
