@@ -30,7 +30,6 @@ alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/
 alias tma='tmux att -t'
 alias tmk='tmux kill-session -t'
 alias tmn='tmux new -s'
-alias muxi='tmuxinator'
 
 # services
 alias startredis='redis-server /usr/local/etc/redis.conf'

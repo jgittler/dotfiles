@@ -51,9 +51,6 @@ export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# tmuxinator
-source ~/dotfiles/tmuxinator.zsh
-
 # themekit
 PATH="/Users/jasongittler/.themekit:$PATH"
 
