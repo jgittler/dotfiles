@@ -1,5 +1,5 @@
 " Leader
-"
+
 :let mapleader = " "
 
 syntax enable 
@@ -39,20 +39,18 @@ Plug 'slashmili/alchemist.vim'
 Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist'
 
-" Liquid (Shopify)
+" Liquid
 Plug 'tpope/vim-liquid'
 
-" Ruby/Rails
-Plug 'tpope/vim-rails'
+" Ruby
 Plug 'tpope/vim-rbenv'
 Plug 'vim-ruby/vim-ruby'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
-Plug 'jgdavey/tslime.vim'
 Plug 'sunaku/vim-ruby-minitest'
+Plug 'tpope/vim-rails'
 
 " Javascript
-Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
@@ -73,6 +71,7 @@ Plug 'vim-scripts/file-line'
 " HTML
 Plug 'gregsexton/MatchTag'
 Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
 
 " Puppet
 Plug 'rodjek/vim-puppet'
@@ -164,6 +163,10 @@ let g:bufferline_echo = 0
 nmap <Leader>b :call AddDebugger("O")<cr>
 nmap <Leader>b :call AddDebugger("o")<cr>
 nmap <Leader>d :call RemoveAllDebuggers()<cr>
+
+" deoplete
+let g:python_host_prog = '/Users/jasongittler/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/jasongittler/.pyenv/versions/neovim3/bin/python'
 
 " Multiple Cursors
 let g:multi_cursor_quit_key='<C-d>'

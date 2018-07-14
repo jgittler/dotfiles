@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="awesomepanda"
 
-plugins=(git zsh-completions svn) source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # use nvim as the visual editor
 export VISUAL=nvim
@@ -41,7 +41,6 @@ export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/
 # nvm
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
-eval "$(npm config delete prefix)"
 
 # heroku
 export PATH="/usr/local/bin/heroku:$PATH"

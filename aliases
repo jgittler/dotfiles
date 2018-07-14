@@ -37,3 +37,6 @@ alias startmem='/usr/local/opt/memcached/bin/memcached'
 
 # ctags
 alias tagme='ctags -R ./tags .'
+
+# bat
+alias bat='bat --theme="Monokai Extended Origin"'
