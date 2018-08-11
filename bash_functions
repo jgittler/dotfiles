@@ -2,7 +2,7 @@
 
 # utility
 check() {
-  ps aux | grep $1
+  ps aux | rg $1
 }
 
 usage() {
@@ -63,7 +63,7 @@ themeinit() {
 
 # git
 gitfco() {
-  if [[ $(git branch | grep -c $1) == 1 ]]; then git branch | grep $1 | xargs git co; else git br | rg $1; fi
+  if [[ $(git branch | rg -c $1) == 1 ]]; then git branch | rg $1 | xargs git co; else git br | rg $1; fi
 }
 
 gitc() {
@@ -76,6 +76,13 @@ gitc() {
       git commit -m "$1: $2"
     fi
   fi
+}
+
+git_delete_old_branches() {
+  for branch in $(git br | rg months | cut -d ' ' -f1)
+  do
+    echo "Locally $(git branch -D ${branch})"
+  done
 }
 
 # rails

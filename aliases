@@ -40,3 +40,6 @@ alias tagme='ctags -R ./tags .'
 
 # bat
 alias bat='bat --theme="Monokai Extended Origin"'
+
+# git
+alias gdbs='git_delete_old_branches'
