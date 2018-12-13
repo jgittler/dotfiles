@@ -81,7 +81,14 @@ gitc() {
 git_delete_old_branches() {
   for branch in $(git br | rg months | cut -d ' ' -f1)
   do
-    echo "Locally $(git branch -D ${branch})"
+    case "$1" in
+      --dry)
+        echo "Locally Deleting ${branch}"
+        ;;
+      *)
+        echo "Locally $(git branch -D ${branch})"
+        ;;
+    esac
   done
 }
 
@@ -92,7 +99,7 @@ rroutes() {
 
 # elixir
 mixff() {
-  files=($(git ls-files -m))
+  files=($(git ls-files "*.ex" "*.exs" -m))
   for file in $files
   do
     mix format $file

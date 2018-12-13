@@ -37,7 +37,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'c-brenn/phoenix.vim'
-Plug 'tpope/vim-projectionist'
+Plug 'mhinz/vim-mix-format'
 
 " Liquid
 Plug 'tpope/vim-liquid'
@@ -225,6 +225,7 @@ vnoremap // y/<C-R>"<CR>
 vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
+nmap <Leader>F :execute "MixFormat"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
 imap <C-i> <ESC>
 xnoremap p pgvy
