@@ -1,5 +1,5 @@
 # oh-my-zsh configs 
-ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="awesomepanda"
 
 source $ZSH/oh-my-zsh.sh
@@ -59,13 +59,7 @@ PATH="/usr/local/bin/kerl:$PATH"
 # elixir
 source "$HOME/.kiex/scripts/kiex"
 PATH="/Users/jasongittler/.mix/escripts:$PATH"
-. /Users/jasongittler/kerl/20.3/activate
-kiex use 1.7.4
-
-# Source chtf
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-  source "/usr/local/share/chtf/chtf.sh"
-fi
+. /Users/jasongittler/kerl/activate
 
 # z stuff
 if command -v brew >/dev/null 2>&1; then

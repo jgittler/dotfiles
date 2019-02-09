@@ -14,11 +14,11 @@ Plug 'tpope/vim-endwise'
 Plug 'kana/vim-textobj-user'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'mcasper/vim-infer-debugger'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'foosoft/vim-argwrap'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
+Plug 'maralla/completor.vim'
 
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -159,14 +159,13 @@ vmap <ENTER> <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
+" Autocomplete
+let g:completor_python_binary = "/usr/local/lib/python3.7/site-packages/jedi"
+
 " Debugger
 nmap <Leader>b :call AddDebugger("O")<cr>
 nmap <Leader>b :call AddDebugger("o")<cr>
 nmap <Leader>d :call RemoveAllDebuggers()<cr>
-
-" deoplete
-let g:python_host_prog = '/Users/jasongittler/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/jasongittler/.pyenv/versions/neovim3/bin/python'
 
 " Multiple Cursors
 let g:multi_cursor_quit_key='<C-d>'
@@ -176,10 +175,6 @@ let g:alchemist_tag_disable = 1
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
-
-" Auto Complete
-let g:deoplete#enable_at_startup = 1
-set runtimepath+=~/Users/jasongittler/dotfiles/nvim/plugged/deoplete.nvim
 
 " Tagbar
 nmap <Leader>m :TagbarToggle<CR>
