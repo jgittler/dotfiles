@@ -43,3 +43,6 @@ alias bat='bat --theme="Monokai Extended Origin"'
 
 # git
 alias gdbs='git_delete_old_branches'
+
+# go
+alias hey='~/go/bin/hey'

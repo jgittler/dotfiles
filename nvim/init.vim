@@ -18,7 +18,14 @@ Plug 'foosoft/vim-argwrap'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
-Plug 'maralla/completor.vim'
+
+" Autocomplete
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'pbogut/ncm2-alchemist'
+Plug 'ncm2/ncm2-jedi'
 
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -159,9 +166,6 @@ vmap <ENTER> <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
-" Autocomplete
-let g:completor_python_binary = "/usr/local/lib/python3.7/site-packages/jedi"
-
 " Debugger
 nmap <Leader>b :call AddDebugger("O")<cr>
 nmap <Leader>b :call AddDebugger("o")<cr>
@@ -185,6 +189,11 @@ let g:test#preserve_screen = 1
 let g:VimuxHeight = "33"
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
+
+" Autocomplete
+let g:python3_host_prog="/usr/local/bin/python3"
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'

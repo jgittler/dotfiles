@@ -36,7 +36,7 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 fi
 
 # paths
-export PATH=/usr/local/bin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -51,15 +51,18 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # themekit
-PATH="/Users/jasongittler/.themekit:$PATH"
+export PATH="/Users/jasongittler/.themekit:$PATH"
 
 # erlang
-PATH="/usr/local/bin/kerl:$PATH"
+export PATH="/usr/local/bin/kerl:$PATH"
 
 # elixir
 source "$HOME/.kiex/scripts/kiex"
 PATH="/Users/jasongittler/.mix/escripts:$PATH"
 . /Users/jasongittler/kerl/activate
+
+# vs code
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # z stuff
 if command -v brew >/dev/null 2>&1; then
