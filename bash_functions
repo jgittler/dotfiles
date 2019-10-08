@@ -94,7 +94,8 @@ git_delete_old_branches() {
 
 # rails
 rroutes() {
-  brk routes | grep $1 | tr -s " " | sed -e "G;"
+  # brk routes | grep $1 | tr -s " " | sed -e "G;"
+  rails routes | grep $1 | tr -s " " | sed -e "G;"
 }
 
 # elixir

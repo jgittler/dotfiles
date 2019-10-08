@@ -25,7 +25,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'pbogut/ncm2-alchemist'
-Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-jedi'
 
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -63,6 +63,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'walm/jshint.vim'
 Plug 'vim-scripts/jQuery'
 Plug 'mxw/vim-jsx'
+" Plug 'HerringtonDarkholme/yats.vim'
 
 " Elm
 Plug 'elmcast/elm-vim'
