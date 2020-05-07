@@ -94,7 +94,6 @@ git_delete_old_branches() {
 
 # rails
 rroutes() {
-  # brk routes | grep $1 | tr -s " " | sed -e "G;"
   rails routes | grep $1 | tr -s " " | sed -e "G;"
 }
 
@@ -105,4 +104,14 @@ mixff() {
   do
     mix format $file
   done
+}
+
+ka() {
+  if [ -z "$1" ]
+  then
+    inst=$(kerl status | awk  '/Available installations/{getline;print $1}' | xargs kerl path)
+  else
+    inst=$(kerl path $1)
+  fi
+  . "${inst}/activate"
 }

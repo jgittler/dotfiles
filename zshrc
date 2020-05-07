@@ -46,9 +46,9 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/usr/local/bin/heroku:$PATH"
 
 # Pyenv
-export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # themekit
 export PATH="/Users/jasongittler/.themekit:$PATH"
@@ -59,7 +59,6 @@ export PATH="/usr/local/bin/kerl:$PATH"
 # elixir
 source "$HOME/.kiex/scripts/kiex"
 PATH="/Users/jasongittler/.mix/escripts:$PATH"
-. /Users/jasongittler/kerl/activate
 
 # vs code
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"

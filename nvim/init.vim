@@ -1,78 +1,67 @@
-" Leader
-
 :let mapleader = " "
 
 syntax enable 
 call plug#begin('~/.config/nvim/plugged')
 
 " Utility
-Plug 'tomtom/tcomment_vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'foosoft/vim-argwrap'
 Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-surround'
+Plug 'kana/vim-textobj-user'
+Plug 'mcasper/vim-infer-debugger'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
-Plug 'kana/vim-textobj-user'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'mcasper/vim-infer-debugger'
-Plug 'foosoft/vim-argwrap'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'neomake/neomake'
-Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
 
-" Autocomplete
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'pbogut/ncm2-alchemist'
-" Plug 'ncm2/ncm2-jedi'
+" Autocomplete / LSP
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 " Search
+Plug 'henrik/vim-indexed-search'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'henrik/vim-indexed-search'
 
 " Colors
 Plug 'morhetz/gruvbox'
 
 " Git
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
 Plug 'c-brenn/phoenix.vim'
+Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
-
-" Liquid
-Plug 'tpope/vim-liquid'
+Plug 'slashmili/alchemist.vim'
 
 " Ruby
-Plug 'tpope/vim-rbenv'
-Plug 'vim-ruby/vim-ruby'
 Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'ngmy/vim-rubocop'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'vim-ruby/vim-ruby'
 
 " Javascript
-Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'walm/jshint.vim'
-Plug 'vim-scripts/jQuery'
 Plug 'mxw/vim-jsx'
-" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'walm/jshint.vim'
 
 " Elm
 Plug 'elmcast/elm-vim'
 
 " Tests
-Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
+Plug 'janko-m/vim-test'
 
-" Airline
+" Display
 Plug 'bling/vim-airline'
 Plug 'vim-scripts/file-line'
 
@@ -80,9 +69,6 @@ Plug 'vim-scripts/file-line'
 Plug 'gregsexton/MatchTag'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
-
-" Puppet
-Plug 'rodjek/vim-puppet'
 
 call plug#end()
 
@@ -131,6 +117,9 @@ set modeline
 set modelines=1
 set clipboard=unnamed
 
+let g:loaded_python_provider = 0
+let g:python3_host_prog='/usr/local/bin/python3'
+
 " nerdtree toggle
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -157,10 +146,6 @@ set scrolloff=3
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" ctags
-set tags+=./tags
-map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "Start Interactive EasyAlign in visual mode
 vmap <ENTER> <Plug>(EasyAlign)
@@ -192,12 +177,14 @@ nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 
 " Autocomplete
-let g:python3_host_prog="/usr/local/bin/python3"
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+set completeopt+=preview
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" LSP
+let g:lsp_highlight_references_enabled = 1
 
 " fzf
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --vimgrep --no-ignore-vcs'
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap K :Rg <C-R><C-W><CR>
 command! -bang -nargs=* Rg
