@@ -115,3 +115,10 @@ ka() {
   fi
   . "${inst}/activate"
 }
+
+# PHP
+sphp() {
+  current_v=($(php -v | head -n 1 | cut -c 5-7))
+  brew unlink "php@${current_v}"
+  brew link "php@${1}"
+}
