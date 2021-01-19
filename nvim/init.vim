@@ -17,10 +17,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 
 " Autocomplete / LSP
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Search
 Plug 'henrik/vim-indexed-search'
@@ -76,9 +73,11 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                         s
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Guardfile,*.rake,config.ru}    set ft=ruby
 syntax on
 filetype plugin indent on
+
 set autoindent
-set backspace=indent,eol,start
 set background=light
+set backspace=indent,eol,start
+set clipboard=unnamed
 set encoding=utf-8
 set expandtab
 set foldenable
@@ -93,36 +92,40 @@ set ignorecase
 set incsearch
 set laststatus=2
 set matchtime=5
+set modeline
+set modelines=1
 set nobackup
 set noerrorbells
 set noswapfile
 set novisualbell
 set nowrap
+set nowritebackup
 set nu
+set number
+set relativenumber
 set ruler
 set shiftwidth=2
+set shortmess+=c
 set showcmd
 set showmatch
-hi MatchParen cterm=none ctermbg=green ctermfg=blue
+set signcolumn=yes
 set smartcase
 set smarttab
 set softtabstop=2
+set statusline^=coc-status-airline
 set tabstop=2
 set textwidth=0
+set updatetime=1000
 set wildmenu
 set wildmode=longest,list
-set number
-set relativenumber
-set modeline
-set modelines=1
-set clipboard=unnamed
+
+hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 let g:loaded_python_provider = 0
 let g:python3_host_prog='/usr/local/bin/python3'
 
 " nerdtree toggle
 autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * wincmd p
 map <Leader>l :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -176,12 +179,13 @@ let g:VimuxHeight = "33"
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 
-" Autocomplete
-set completeopt+=preview
-imap <c-space> <Plug>(asyncomplete_force_refresh)
-
-" LSP
-let g:lsp_highlight_references_enabled = 1
+" AutoComplete
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+autocmd CursorHold * silent call CocActionAsync('highlight')
+let g:airline#extensions#coc#enabled = 1
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --vimgrep --no-ignore-vcs'
