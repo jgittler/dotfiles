@@ -122,3 +122,15 @@ sphp() {
   brew unlink "php@${current_v}"
   brew link "php@${1}"
 }
+
+# Docker
+drmc() {
+  all_containers=($(docker ps -a --format '{{.ID}}'))
+  docker stop "${all_containers[@]}"
+  docker rm "${all_containers[@]}"
+}
+
+drmi() {
+  all_images=($(docker images -a --format '{{.ID}}'))
+  docker rmi "${all_images[@]}"
+}

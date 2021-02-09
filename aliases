@@ -31,10 +31,6 @@ alias tma='tmux att -t'
 alias tmk='tmux kill-session -t'
 alias tmn='tmux new -s'
 
-# services
-alias startredis='redis-server /usr/local/etc/redis.conf'
-alias startmem='/usr/local/opt/memcached/bin/memcached'
-
 # bat
 alias bat='bat --theme="Monokai Extended Origin"'
 
