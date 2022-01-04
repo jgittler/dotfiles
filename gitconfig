@@ -8,16 +8,12 @@
   st = status
   br = for-each-ref --sort=-committerdate --format='%(refname:short) %(color:green)%(authorname)%(color:reset) %(color:red)%(committerdate:relative)%(color:reset)' refs/heads/
   df = diff --color
-  dfom = diff master --color
   pl = pull
   poh = pull origin HEAD
   ps = push
-  aa = add --all --intent-to-add
-  ad = add -p
   rb = rebase origin/master
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  su = submodule update --init --recursive
   pim = pull origin master
   com = checkout master
   stl = stash list

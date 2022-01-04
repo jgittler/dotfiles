@@ -8,7 +8,6 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'foosoft/vim-argwrap'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-textobj-user'
-Plug 'mcasper/vim-infer-debugger'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
@@ -23,7 +22,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'henrik/vim-indexed-search'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
 
 " Colors
 Plug 'morhetz/gruvbox'
@@ -31,12 +29,6 @@ Plug 'morhetz/gruvbox'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-" Elixir
-Plug 'c-brenn/phoenix.vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'mhinz/vim-mix-format'
-Plug 'slashmili/alchemist.vim'
 
 " Ruby
 Plug 'nelstrom/vim-textobj-rubyblock'
@@ -50,9 +42,6 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'walm/jshint.vim'
-
-" Elm
-Plug 'elmcast/elm-vim'
 
 " Tests
 Plug 'benmills/vimux'
@@ -147,27 +136,16 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-"Start Interactive EasyAlign in visual mode
+" Start Interactive EasyAlign in visual mode
 vmap <ENTER> <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
-" Debugger
-nmap <Leader>b :call AddDebugger("O")<cr>
-nmap <Leader>b :call AddDebugger("o")<cr>
-nmap <Leader>d :call RemoveAllDebuggers()<cr>
-
 " Multiple Cursors
 let g:multi_cursor_quit_key='<C-d>'
 
-" Alchemist
-let g:alchemist_tag_disable = 1
-
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0
-
-" Tagbar
-nmap <Leader>m :TagbarToggle<CR>
 
 " vim-test
 let test#strategy = "vimux"
@@ -217,14 +195,13 @@ noremap <Right> <NOP>
 vnoremap // y/<C-R>"<CR>
 vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
+nmap <Leader>N :execute ":set invnumber invrelativenumber"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
-nmap <Leader>F :execute "MixFormat"<CR>
 nnoremap <silent> Y :execute "noh"<CR>
 imap <C-i> <ESC>
 xnoremap p pgvy
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
-map <Leader>gb :Gblame<CR>
 
 " Colorscheme settings
 set termguicolors

@@ -1,7 +1,5 @@
 # utility
-alias ls='ls -GF'
-alias lh='ls -a'
-alias la='ls -lhrSa'
+alias ll='ls -la'
 alias vz='v ~/dotfiles/zshrc'                                                         
 alias vv='v ~/dotfiles/nvim/init.vim'
 alias vg='v ~/dotfiles/gitconfig'
@@ -15,13 +13,8 @@ alias reload='source ~/.zshrc'
 # rails
 alias be='bundle exec'                                                          
 alias br='bin/rails'                                                          
-alias brs='bin/rspec'                                                          
 alias brk='bin/rake'                                                          
 alias dbreset='bin/rake -t db:drop db:create'
-
-# elixir
-alias miex='iex -S mix'
-alias phxs='mix phx.server'
 
 # js
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
@@ -29,16 +22,9 @@ alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/
 # tmux
 alias tma='tmux att -t'
 alias tmk='tmux kill-session -t'
-alias tmn='tmux new -s'
 
 # bat
 alias bat='bat --theme="Monokai Extended Origin"'
 
 # git
 alias gdbs='git_delete_old_branches'
-
-# go
-alias hey='/usr/local/Cellar/hey/0.1.3/bin/hey'
-
-# kerl
-alias kd='kerl_deactivate'

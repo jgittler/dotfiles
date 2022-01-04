@@ -30,17 +30,8 @@ setopt extended_history
 # fuctions
 . ~/dotfiles/bash_functions
 
-# exercism
-if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-  . ~/.config/exercism/exercism_completion.zsh
-fi
-
 # paths
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
 
 # heroku
 export PATH="/usr/local/bin/heroku:$PATH"
@@ -49,16 +40,6 @@ export PATH="/usr/local/bin/heroku:$PATH"
 # export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
-
-# themekit
-export PATH="/Users/jasongittler/.themekit:$PATH"
-
-# erlang
-export PATH="/usr/local/bin/kerl:$PATH"
-
-# elixir
-source "$HOME/.kiex/scripts/kiex"
-PATH="/Users/jasongittler/.mix/escripts:$PATH"
 
 # vs code
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
