@@ -197,6 +197,7 @@ vnoremap <C-c> "*y
 nmap <Leader>n :execute ":set nu!"<CR>
 nmap <Leader>N :execute ":set invnumber invrelativenumber"<CR>
 nmap <Leader>g :execute "GitGutterToggle"<CR>
+map <Leader>gb :Git blame<CR>
 nnoremap <silent> Y :execute "noh"<CR>
 imap <C-i> <ESC>
 xnoremap p pgvy
