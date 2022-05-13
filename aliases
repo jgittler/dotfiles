@@ -6,6 +6,7 @@ alias vg='v ~/dotfiles/gitconfig'
 alias vt='v ~/dotfiles/tmux.conf'
 alias vp='v ~/dotfiles/psqlrc'
 alias vf='v ~/dotfiles/bash_functions'
+alias va='v ~/dotfiles/aliases'
 alias vs='v ~/.ssh/config'
 alias v='nvim'
 alias reload='source ~/.zshrc'
@@ -15,6 +16,8 @@ alias be='bundle exec'
 alias br='bin/rails'                                                          
 alias brk='bin/rake'                                                          
 alias dbreset='bin/rake -t db:drop db:create'
+## MacOS Monterey throws errors when running minitests in parallel
+alias brkt='OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES brk test'
 
 # js
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
@@ -28,3 +31,6 @@ alias bat='bat --theme="Monokai Extended Origin"'
 
 # git
 alias gdbs='git_delete_old_branches'
+
+# solid
+alias pcs='/Users/jasongittler/affiliate-mvc/vendor/bin/phpcs'

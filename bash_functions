@@ -68,7 +68,12 @@ git_delete_old_branches() {
 sphp() {
   current_v=($(php -v | head -n 1 | cut -c 5-7))
   brew unlink "php@${current_v}"
-  brew link "php@${1}"
+  if [ $# -eq 0 ]
+  then
+    brew link php
+  else
+    brew link "php@${1}"
+  fi
 }
 
 # Docker
@@ -81,4 +86,12 @@ drmc() {
 drmi() {
   all_images=($(docker images -a --format '{{.ID}}'))
   docker rmi "${all_images[@]}"
+}
+
+denter() {
+  docker exec -it "${1}" /bin/bash
+}
+
+drmc_by_img() {
+  docker rm $(docker stop $(docker ps -a -q --filter ancestor=$1 --format="{{.ID}}"))
 }

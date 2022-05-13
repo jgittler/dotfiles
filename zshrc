@@ -31,10 +31,14 @@ setopt extended_history
 . ~/dotfiles/bash_functions
 
 # paths
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:/usr/local/pgsql/bin:./bin:/usr/local/abbyy/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:/usr/local/opt/postgresql@12/bin:./bin:/usr/local/abbyy/bin:$PATH
 
 # heroku
 export PATH="/usr/local/bin/heroku:$PATH"
+
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Pyenv
 # export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
