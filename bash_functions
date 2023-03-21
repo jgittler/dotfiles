@@ -83,6 +83,11 @@ drmc() {
   docker rm "${all_containers[@]}"
 }
 
+dsac() {
+  all_containers=($(docker ps -a --format '{{.ID}}'))
+  docker stop "${all_containers[@]}"
+}
+
 drmi() {
   all_images=($(docker images -a --format '{{.ID}}'))
   docker rmi "${all_images[@]}"

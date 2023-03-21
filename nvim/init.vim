@@ -141,6 +141,11 @@ vmap <ENTER> <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+" disable perl provider
+let g:loaded_perl_provider = 0
+
 " Multiple Cursors
 let g:multi_cursor_quit_key='<C-d>'
 
@@ -161,6 +166,11 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 let g:airline#extensions#coc#enabled = 1
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --vimgrep --no-ignore-vcs'

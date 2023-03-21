@@ -41,9 +41,9 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # Pyenv
-# export PATH="/Users/jasongittler/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # vs code
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
