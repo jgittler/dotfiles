@@ -11,11 +11,11 @@
   pl = pull
   poh = pull origin HEAD
   ps = push
-  rb = rebase origin/master
+  rb = rebase origin/main
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  pim = pull origin master
-  com = checkout master
+  pim = pull origin main
+  com = checkout main
   stl = stash list
   sta = "!f() { git stash apply stash@{$1}; }; f"
   std = "!f() { git stash drop stash@{$1}; }; f"
@@ -48,6 +48,6 @@
   changed = "45 bold"
   untracked = red bold
   unmerged = white red bold
-[branch "master"]
+[branch "main"]
   remote = origin
-  merge = refs/heads/master
+  merge = refs/heads/main
