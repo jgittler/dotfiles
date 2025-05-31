@@ -13,24 +13,10 @@ alias reload='source ~/.zshrc'
 
 # rails
 alias be='bundle exec'                                                          
-alias br='bin/rails'                                                          
-alias brk='bin/rake'                                                          
-alias dbreset='bin/rake -t db:drop db:create'
-## MacOS Monterey throws errors when running minitests in parallel
-alias brkt='OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES brk test'
-
-# js
-alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 
 # tmux
 alias tma='tmux att -t'
 alias tmk='tmux kill-session -t'
 
-# bat
-alias bat='bat --theme="Monokai Extended Origin"'
-
 # git
 alias gdbs='git_delete_old_branches'
-
-# solid
-alias pcs='/Users/jasongittler/affiliate-mvc/vendor/bin/phpcs'

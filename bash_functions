@@ -22,14 +22,6 @@ vl() {
   nvim $1 -V9$_file
 }
 
-# homebrew
-brewupgrade() {
-  for package in "$@"
-  do
-    brew upgrade $package && brew cleanup $package
-  done
-}
-
 brewupdate() {
   brew update
   for package in $(brew outdated)

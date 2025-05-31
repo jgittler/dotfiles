@@ -31,10 +31,7 @@ setopt extended_history
 . ~/dotfiles/bash_functions
 
 # paths
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:./bin:/usr/local/abbyy/bin:$PATH
-
-# heroku
-export PATH="/usr/local/bin/heroku:$PATH"
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:$PATH
 
 # nvm
 export NVM_DIR=~/.nvm
@@ -63,6 +60,3 @@ eval "$(rbenv init -)"
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--color --reverse"
-
-# psql
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"

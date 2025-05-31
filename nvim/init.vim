@@ -91,7 +91,6 @@ set nowrap
 set nowritebackup
 set nu
 set number
-set relativenumber
 set ruler
 set shiftwidth=2
 set shortmess+=c
