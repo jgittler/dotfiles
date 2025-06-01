@@ -30,8 +30,7 @@ setopt extended_history
 # fuctions
 . ~/dotfiles/bash_functions
 
-# paths
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/redis/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # nvm
 export NVM_DIR=~/.nvm
@@ -51,12 +50,20 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 # Syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# mise
+eval "$(mise activate)"
+
+# psql
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--color --reverse"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jasongittler/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jasongittler/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jasongittler/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jasongittler/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

@@ -85,3 +85,7 @@ denter() {
 drmc_by_img() {
   docker rm $(docker stop $(docker ps -a -q --filter ancestor=$1 --format="{{.ID}}"))
 }
+
+cursor() {
+  open -a "/Applications/Cursor.app" "$@"
+}

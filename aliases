@@ -20,3 +20,6 @@ alias tmk='tmux kill-session -t'
 
 # git
 alias gdbs='git_delete_old_branches'
+
+# google cloud
+alias gcloud='~/google-cloud-sdk/bin/gcloud'

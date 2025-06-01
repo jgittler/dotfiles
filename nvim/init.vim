@@ -140,8 +140,6 @@ vmap <ENTER> <Plug>(EasyAlign)
 
 let g:bufferline_echo = 0
 
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 " disable perl provider
 let g:loaded_perl_provider = 0
 
