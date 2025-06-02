@@ -38,10 +38,7 @@ Plug 'tpope/vim-rbenv'
 Plug 'vim-ruby/vim-ruby'
 
 " Javascript
-Plug 'jelera/vim-javascript-syntax'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'walm/jshint.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Tests
 Plug 'benmills/vimux'
@@ -125,6 +122,17 @@ let g:indexed_search_colors = 0
 " Speed
 set re=1
 
+" js/ts syntax tree
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "javascript", "typescript", "tsx", "json", "html", "css" },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
@@ -145,9 +153,6 @@ let g:loaded_perl_provider = 0
 
 " Multiple Cursors
 let g:multi_cursor_quit_key='<C-d>'
-
-" Allow JSX in normal JS files
-let g:jsx_ext_required = 0
 
 " vim-test
 let test#strategy = "vimux"
